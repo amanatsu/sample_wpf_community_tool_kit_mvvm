@@ -87,6 +87,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\ScreenC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\ScreenA.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -102,6 +106,10 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\ScreenCViewMode .cs" />
+    <Compile Include="Views\ScreenC.xaml.cs">
+      <DependentUpon>ScreenC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ScreenA.xaml.cs">
       <DependentUpon>ScreenA.xaml</DependentUpon>

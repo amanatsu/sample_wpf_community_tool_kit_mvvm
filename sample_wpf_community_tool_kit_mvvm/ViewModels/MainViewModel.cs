@@ -11,6 +11,7 @@ namespace sample_wpf_community_tool_kit_mvvm.ViewModels
     {
         private readonly ScreenAViewModel screenAViewModel;
         private readonly ScreenBViewModel screenBViewModel;
+        private readonly ScreenCViewModel screenCViewModel;
 
         private ObservableObject _currentScreen;
         public ObservableObject CurrentScreen
@@ -22,11 +23,13 @@ namespace sample_wpf_community_tool_kit_mvvm.ViewModels
 
         public ICommand ShowScreenACommand { get; }
         public ICommand ShowScreenBCommand { get; }
+        public ICommand ShowScreenCCommand { get; }
 
         public MainViewModel()
         {
             screenAViewModel = new ScreenAViewModel();
             screenBViewModel = new ScreenBViewModel();
+            screenCViewModel = new ScreenCViewModel();
 
             // 初期値のセット
             CurrentScreen = screenAViewModel;
@@ -35,6 +38,7 @@ namespace sample_wpf_community_tool_kit_mvvm.ViewModels
             // メソッドとコマンドをここで紐づけます
             ShowScreenACommand = new RelayCommand(ShowScreenA);
             ShowScreenBCommand = new RelayCommand(ShowScreenB);
+            ShowScreenCCommand = new RelayCommand(ShowScreenC);
         }
 
         // コマンドから呼ばれるメソッド（属性は不要です）
@@ -46,6 +50,11 @@ namespace sample_wpf_community_tool_kit_mvvm.ViewModels
         private void ShowScreenB()
         {
             CurrentScreen = screenBViewModel;
+        }
+
+        private void ShowScreenC()
+        {
+            CurrentScreen = screenCViewModel;
         }
     }
 }
