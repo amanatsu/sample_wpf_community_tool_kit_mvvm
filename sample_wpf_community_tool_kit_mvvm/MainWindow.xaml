@@ -6,6 +6,7 @@
         xmlns:vm="clr-namespace:sample_wpf_community_tool_kit_mvvm.ViewModels"
         xmlns:views="clr-namespace:sample_wpf_community_tool_kit_mvvm.Views"
         xmlns:viewModels="clr-namespace:sample_wpf_community_tool_kit_mvvm.ViewModels"
+        xmlns:services="clr-namespace:sample_wpf_community_tool_kit_mvvm.Services"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=viewModels:MainViewModel, IsDesignTimeCreatable=True}"
         Title="Sample MVVM App"
@@ -15,15 +16,7 @@
         <vm:MainViewModel />
     </Window.DataContext>
     <Window.Resources>
-        <DataTemplate DataType="{x:Type vm:ScreenAViewModel}">
-            <views:ScreenA />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:ScreenBViewModel}">
-            <views:ScreenB />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:ScreenCViewModel}">
-            <views:ScreenC />
-        </DataTemplate>
+        <services:ViewLocatorSelector x:Key="AutoViewLocator" />
     </Window.Resources>
 
     <Grid>
@@ -66,7 +59,8 @@
                 CornerRadius="8"
                 BorderBrush="#FFD0D0D0"
                 BorderThickness="1">
-            <ContentControl Content="{Binding CurrentScreen}" />
+            <ContentControl Content="{Binding CurrentScreen}"
+                            ContentTemplateSelector="{StaticResource AutoViewLocator}" />
         </Border>
     </Grid>
 </Window>
